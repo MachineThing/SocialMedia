@@ -1,0 +1,11 @@
+### Django ###
+*.log
+*.pot
+*.pyc
+*.swp
+__pycache__/
+local_settings.py
+media
+/static
+PortfoiloPROJ/static/modules/
+DjangoEnv/
