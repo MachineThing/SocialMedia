@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'socialmedia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio',
+        'NAME': 'socialmedia',
         'USER': 'postgres',
         'PASSWORD': 'apD696969',
         'HOST': 'localhost',
