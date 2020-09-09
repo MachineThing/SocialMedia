@@ -57,7 +57,7 @@ ROOT_URLCONF = 'socialmedia.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR+'/socialmedia/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
