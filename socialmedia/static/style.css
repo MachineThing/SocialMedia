@@ -5,3 +5,8 @@
 .container {
     margin: 10px auto;
 }
+
+.navbar-text {
+    display: inline-block;
+    padding: $nav-link-padding-y auto;
+}

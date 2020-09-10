@@ -10,10 +10,14 @@ def homepage(request):
 
 def login(request):
     if request.method == 'POST': # If user wants to log in
-        pass
+        user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
+        if user is not None:
+            auth.login(request, user)
+            return redirect('homepage')
+        else:
+            return render(request, 'users/login.html', {'err':True})
     else:
-        pass
-    return render(request, 'users/login.html')
+        return render(request, 'users/login.html')
 
 def register(request):
     if request.method == 'POST': # If user wants to make an account
@@ -77,5 +81,8 @@ def register(request):
         return render(request, 'users/register.html')
 
 def logout(request):
-    pass
-    # TODO: Make this logout user and bring user to homepage
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('homepage')
+    else:
+        return redirect('register')

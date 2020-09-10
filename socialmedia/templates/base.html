@@ -22,12 +22,23 @@
             </li>
         </ul>
         <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+            <span class="navbar-text text-dark">Welcome, {{ user }}!</span>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:{document.getElementById('logout').submit();}">Logout</a>
+                <form id="logout" method="POST" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input type="hidden" />
+                </form>
+            </li>
+            {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'register' %}">Register</a>
             </li>
+            {% endif %}
         </ul>
     </div>
 </nav>

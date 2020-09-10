@@ -7,6 +7,7 @@ from users import views
 urlpatterns = [
     path('', views.homepage, name="homepage"),
     path('login/', views.login, name="login"),
+    path('logout/', views.logout, name="logout"),
     path('register/', views.register, name="register"),
     path('user/', include('users.urls')),
     path('admin/', admin.site.urls),
