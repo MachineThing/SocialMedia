@@ -12,7 +12,8 @@ class SocialUserAdmin(UserAdmin):
     list_display = ('username', 'is_staff', 'is_active',)
     list_filter = ('username', 'is_staff', 'is_active',)
     fieldsets = (
-        (None, {'fields': ('username', 'first_name', 'last_name', 'email', 'password')}),
+        ('Main Info', {'fields': ('username', 'first_name', 'last_name', 'email', 'password')}),
+        ('Profile', {'fields': ('profile_bio', 'profile_pic')}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
     )
     add_fieldsets = (
@@ -21,8 +22,8 @@ class SocialUserAdmin(UserAdmin):
             'fields': ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'is_staff', 'is_active')}
         ),
     )
-    search_fields = ('username',)
-    ordering = ('username',)
+    search_fields = ('username', 'id')
+    ordering = ('id',)
 
 
 admin.site.register(SocialUser, SocialUserAdmin)

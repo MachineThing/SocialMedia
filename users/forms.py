@@ -10,4 +10,4 @@ class SocialUserCreationForm(UserCreationForm):
 class SocialUserChangeForm(UserChangeForm):
     class Meta:
         model = SocialUser
-        fields = ('first_name', 'last_name', 'email', 'password')
+        fields = ('first_name', 'last_name', 'email', 'password', 'profile_bio', 'profile_pic')
