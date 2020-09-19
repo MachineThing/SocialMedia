@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
+from .models import SocialUser as User
 from django.contrib import auth
 from string import ascii_letters as strlet
 from string import digits as strdig
