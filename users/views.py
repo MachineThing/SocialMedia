@@ -8,6 +8,22 @@ from django.core.validators import EmailValidator as validate_email
 def homepage(request):
     return render(request, 'users/index.html')
 
+def profile(request, **kwargs):
+    try:
+        user = User.objects.get(username=kwargs['username'])
+    except User.DoesNotExist:
+        pass
+        # TODO: Make 404 page!
+    else:
+        user = User.objects.filter(username=kwargs['username'])[0]
+        info = {
+        'username':kwargs['username'],
+        'bio':user.profile_bio,
+        }
+        return render(request, 'users/profile.html', info)
+
+# Login views
+
 def login(request):
     if request.method == 'POST': # If user wants to log in
         user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
